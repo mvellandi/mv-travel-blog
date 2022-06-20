@@ -24,11 +24,8 @@ const PostComponents = {
 };
 
 const Post = ({ post }) => {
-  console.log(post);
-
   const { title, categories, body, authorImage, username, about, postedAt } =
     post;
-
   return (
     <>
       {post && (
@@ -37,9 +34,9 @@ const Post = ({ post }) => {
           <hr />
           <div className="tag-container">
             {categories?.map((category) => (
-              <>
-                {category && <Tag key={category.id} title={category.title} />}
-              </>
+              <div key={category._id}>
+                {category && <Tag title={category.title} />}
+              </div>
             ))}
           </div>
 
@@ -79,7 +76,7 @@ const query = groq`*[_type == "post" && slug.current == $slug][0] {
   title,
   "username": author->username,
   "about": author->bio,
-  "categories": categories[]->{id, title},
+  "categories": categories[]->{_id, title},
   "authorImage": author->avatar,
   body,
   publishedAt,

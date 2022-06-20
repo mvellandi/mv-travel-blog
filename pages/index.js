@@ -36,7 +36,7 @@ export async function getStaticProps({ preview = false }) {
       _id,
       title,
       "username": author->username,
-      "categories": categories[]->{id, title},
+      "categories": categories[]->{_id, title},
       "authorImage": author->avatar,
       body,
       mainImage,

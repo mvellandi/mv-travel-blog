@@ -40,7 +40,7 @@ const Card = forwardRef(({ onClick, href, post }, ref) => {
 
       <div className="tag-container">
         {categories.map((category) => (
-          <div key={category.title}>
+          <div key={category._id}>
             {category && <Tag title={category?.title} />}
           </div>
         ))}
