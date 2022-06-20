@@ -5,6 +5,7 @@ import { urlFor } from "/lib/sanity";
 import { getClient } from "/lib/sanity.server";
 import Image from "next/image";
 import Map from "/components/Map";
+import { useRouter } from "next/router";
 
 const PostComponents = {
   types: {
@@ -24,15 +25,17 @@ const PostComponents = {
 };
 
 const Post = ({ post }) => {
-  const {
-    title = null,
-    categories,
-    body,
-    authorImage,
-    username,
-    about,
-    postedAt,
-  } = post;
+  const router = useRouter();
+
+  // If the page is not yet generated, this will be displayed
+  // initially until getStaticProps() finishes running
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+  console.log(router.isFallBack);
+
+  const { title, categories, body, authorImage, username, about, postedAt } =
+    post;
   return (
     <>
       {post && (
@@ -105,7 +108,10 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, preview = false }) {
   const post = await getClient(preview).fetch(query, { slug: params.slug });
 
-  return { props: { post } };
+  return {
+    props: { post },
+    revalidate: 10,
+  };
 }
 
 export default Post;
