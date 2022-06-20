@@ -32,8 +32,7 @@ const Post = ({ post }) => {
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
-  console.log(router.isFallBack);
-
+  
   const { title, categories, body, authorImage, username, about, postedAt } =
     post;
   return (
