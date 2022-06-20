@@ -1,9 +1,15 @@
+:root {
+  --box-shadow1: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0 0 0 1px;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: rg(70, 70, 70);
 }
 
 a {
@@ -11,6 +17,124 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+/* App */
+.app-container {
+  display: flex;
+  background-color: rgb(145, 156, 143);
+}
+
+/* NabBar */
+nav.nav-container {
+  background-color: white;
+  min-height: 100vh;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav.nav-container .nav-item-container {
+  padding: 30px;
+}
+
+/* HomePage */
+.dashboard {
+  width: 100%;
+}
+
+.posts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Card */
+.card-container {
+  background-color: white;
+  width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: var(--box-shadow1);
+}
+
+.card-container .info-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-container .image-container {
+  width: 400px;
+  height: 300px;
+}
+
+.card-container .info-container .image-container {
+  width: 50px;
+  height: 50px;
+}
+
+.tag-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tag-container .tag {
+  color: white;
+  padding: 5px 10px;
+  margin: 10px 10px 10px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tag-container .tag:nth-child(1) {
+  margin-left: 0 !important;
+}
+
+/* Images */
+.image-container {
+  position: relative;
+}
+
+.avatar {
+  border-radius: 25px;
+}
+
+/* Posts */
+.post-container {
+  background-color: white;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow1);
+  padding: 20px;
+  width: 100%;
+  position: relative;
+}
+
+.post-container .image-container {
+  width: 600px;
+  height: 400px;
+}
+
+.post-container .author-container .image-container {
+  width: 150px;
+  height: 150px;
+}
+
+.post-container .info-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.post-container .author-container,
+.post-container .map-container {
+  width: 48%;
+}
+
+.post-container .map-container .map {
+  width: 100%;
+  height: 200px;
 }
