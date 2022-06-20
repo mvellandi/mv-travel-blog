@@ -24,8 +24,15 @@ const PostComponents = {
 };
 
 const Post = ({ post }) => {
-  const { title, categories, body, authorImage, username, about, postedAt } =
-    post;
+  const {
+    title = null,
+    categories,
+    body,
+    authorImage,
+    username,
+    about,
+    postedAt,
+  } = post;
   return (
     <>
       {post && (
